@@ -1,0 +1,35 @@
+# a. Find the frequency of a character in a string
+def frequency(s, ch):
+    return s.count(ch)
+
+# b. Replace a character by another character in a string
+def replace_char(s, old, new):
+    return s.replace(old, new, 1)  # replace only first occurrence
+
+# c. Remove the first occurrence of a character from a string
+def remove_first(s, ch):
+    return s.replace(ch, "", 1)
+
+# d. Remove all occurrences of a character from a string
+def remove_all(s, ch):
+    return s.replace(ch, "")
+
+# ---------------- Main Program ----------------
+s = input("Enter a string: ")
+
+# a. Frequency
+ch = input("\nEnter a character to find its frequency: ")
+print(f"Frequency of '{ch}' in string: {frequency(s, ch)}")
+
+# b. Replace
+old = input("\nEnter character to replace: ")
+new = input("Enter new character: ")
+print("String after replacement (first occurrence):", replace_char(s, old, new))
+
+# c. Remove first occurrence
+ch = input("\nEnter a character to remove first occurrence: ")
+print("String after removing first occurrence:", remove_first(s, ch))
+
+# d. Remove all occurrences
+ch = input("\nEnter a character to remove all occurrences: ")
+print("String after removing all occurrences:", remove_all(s, ch))
