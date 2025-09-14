@@ -1,0 +1,24 @@
+import math
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    # String representation of the object
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+
+    # Method to calculate distance between two points
+    def distance(self, other):
+        return math.sqrt((self.x - other.x) ** 2 + (self.y - other.y) ** 2)
+
+
+# ---------------- Main Program ----------------
+p1 = Point(3, 4)
+p2 = Point(7, 1)
+
+print("First Point:", p1)
+print("Second Point:", p2)
+
+print(f"Distance between {p1} and {p2} is: {p1.distance(p2):.2f}")
