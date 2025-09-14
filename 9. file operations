@@ -1,0 +1,48 @@
+def file_operations(filename):
+    try:
+        with open(filename, "r") as f:
+            lines = f.readlines()
+
+        # (a) Total characters, words, and lines
+        total_chars = sum(len(line) for line in lines)
+        total_words = sum(len(line.split()) for line in lines)
+        total_lines = len(lines)
+
+        print("Total Characters:", total_chars)
+        print("Total Words:", total_words)
+        print("Total Lines:", total_lines)
+
+        # (b) Frequency of each character
+        char_freq = {}
+        for line in lines:
+            for ch in line:
+                char_freq[ch] = char_freq.get(ch, 0) + 1
+
+        print("\nCharacter Frequencies:")
+        for k, v in char_freq.items():
+            print(f"'{k}': {v}")
+
+        # (c) Print words in reverse order
+        all_words = " ".join(lines).split()
+        reversed_words = all_words[::-1]
+        print("\nWords in reverse order:")
+        print(" ".join(reversed_words))
+
+        # (d) Copy even lines → File1, odd lines → File2
+        with open("File1.txt", "w") as f1, open("File2.txt", "w") as f2:
+            for i, line in enumerate(lines, start=1):
+                if i % 2 == 0:
+                    f1.write(line)
+                else:
+                    f2.write(line)
+
+        print("\nEven lines written to File1.txt")
+        print("Odd lines written to File2.txt")
+
+    except FileNotFoundError:
+        print("File not found! Please check the filename.")
+
+
+# ---------------- MAIN ----------------
+filename = input("Enter the filename to process: ")
+file_operations(filename)
