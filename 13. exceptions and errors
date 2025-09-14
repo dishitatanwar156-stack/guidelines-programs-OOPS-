@@ -1,0 +1,17 @@
+class InvalidNameError(Exception):
+    """Custom exception for invalid names"""
+    pass
+
+def validate_name(name):
+    # Allow only alphabets and spaces
+    if not all(ch.isalpha() or ch.isspace() for ch in name):
+        raise InvalidNameError("❌ Invalid name! It should not contain digits or special characters.")
+    return True
+
+# Main Program
+try:
+    name = input("Enter your name: ")
+    validate_name(name)
+    print("✅ Valid name entered:", name)
+except InvalidNameError as e:
+    print("Error:", e)
