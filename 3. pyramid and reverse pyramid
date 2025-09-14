@@ -1,0 +1,18 @@
+def pyramid(n):
+    # normal pyramid
+    for i in range(1, n + 1):
+        print(" " * (n - i) + "*" * (2 * i - 1))
+
+def reverse_pyramid(n):
+    # reverse pyramid
+    for i in range(n, 0, -1):
+        print(" " * (n - i) + "*" * (2 * i - 1))
+
+# Main program
+n = int(input("Enter the number of rows: "))
+
+print("\nPyramid Pattern:")
+pyramid(n)
+
+print("\nReverse Pyramid Pattern:")
+reverse_pyramid(n)
