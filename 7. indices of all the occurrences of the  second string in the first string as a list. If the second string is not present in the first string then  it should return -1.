@@ -1,0 +1,21 @@
+def find_occurrences(main_str, sub_str):
+    indices = []
+    start = 0
+    
+    while True:
+        pos = main_str.find(sub_str, start)  # search from current index
+        if pos == -1:  # no more matches
+            break
+        indices.append(pos)
+        start = pos + 1  # continue search after this position
+    
+    return indices if indices else -1
+
+
+# ---------------- Main Program ----------------
+s1 = input("Enter the main string: ")
+s2 = input("Enter the substring to search: ")
+
+result = find_occurrences(s1, s2)
+
+print("Result:", result)
